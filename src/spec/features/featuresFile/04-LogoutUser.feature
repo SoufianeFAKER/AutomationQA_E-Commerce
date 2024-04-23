@@ -5,7 +5,7 @@ Feature: Logout User
   @logout-user
   Scenario: Logout User
     Given User navigates to application
-    When verify that home page is visible successfully
+    When User verify that home page is visible successfully
     And User clicks on SignupLogin button
     And User verify that login to your account "Login to your account" text is visible
     And User enters email "sfaker@yahoo.fr" and password "12345"

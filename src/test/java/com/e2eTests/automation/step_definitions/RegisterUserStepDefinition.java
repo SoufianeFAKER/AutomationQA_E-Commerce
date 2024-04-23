@@ -35,8 +35,8 @@ public class RegisterUserStepDefinition {
 
 	}
 
-	@Given("verify that home page is visible successfully")
-	public void verifyThatHomePageIsVisibleSuccessfully() {
+	@Given("User verify that home page is visible successfully")
+	public void UserVerifyThatHomePageIsVisibleSuccessfully() {
 
 		String styleAttrActual = homePage.getAttributeOfElement();
 		String styleAttrExpected = "color: orange;";
@@ -94,8 +94,8 @@ public class RegisterUserStepDefinition {
 		Map<String, String> dataMap = dataTableAccount.asMap(String.class, String.class);
 
 		registerUserPage.enterName(dataMap.get("name"));
-		// registerUserPage.enterEmail(dataMap.get("email"));
 		registerUserPage.enterPassword(dataMap.get("password"));
+
 	}
 
 	@When("User chooses Date of Birth")
@@ -147,14 +147,14 @@ public class RegisterUserStepDefinition {
 
 	@When("User clicks on Create Account button")
 	public void userClicksOnCreateAccountButton() {
-		
+
 		registerUserPage.clickOnBtnCreateAccount();
 
 	}
 
 	@When("User verify that Account Created {string} text is visible")
 	public void userVerifyThatAccountCreatedTextIsVisible(String accountCreatedMessageExpected) {
-		
+
 		String accountCreatedMessageActual = registerUserPage.getAccountCreatedMessage();
 		Assert.assertEquals(accountCreatedMessageExpected, accountCreatedMessageActual);
 
@@ -162,14 +162,14 @@ public class RegisterUserStepDefinition {
 
 	@When("User clicks on Continue button")
 	public void userClicksOnContinueButton() {
-		
+
 		registerUserPage.clickOnBtnContinue();
 
 	}
 
 	@When("User verify that Logged UserName {string} text is visible")
 	public void userVerifyThatLoggedUserNameTextIsVisible(String loggedMessageExpected) {
-		
+
 		String loggedMessageMessageActual = registerUserPage.getLoggedMessage();
 		Assert.assertEquals(loggedMessageExpected, loggedMessageMessageActual);
 
@@ -177,18 +177,17 @@ public class RegisterUserStepDefinition {
 
 	@When("User clicks on Delete Account button")
 	public void userClicksOnDeleteAccountButton() {
-		
+
 		registerUserPage.clickOnBtnDeleteAccount();
 
 	}
 
 	@Then("User verify that Account Deleted {string} text is visible")
 	public void userVerifyThatAccountDeletedTextIsVisible(String accountDeletedMessageExpected) {
-		
+
 		String accountDeletedMessageActual = registerUserPage.getAccountDeletedMessage();
 		Assert.assertEquals(accountDeletedMessageExpected, accountDeletedMessageActual);
 
 	}
-
 
 }

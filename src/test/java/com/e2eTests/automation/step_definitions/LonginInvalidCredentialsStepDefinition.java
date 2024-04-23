@@ -6,12 +6,12 @@ import com.e2eTests.automation.page_objects.LoginPage;
 
 import io.cucumber.java.en.Then;
 
-public class LonginInvalidCredentials {
+public class LonginInvalidCredentialsStepDefinition {
 	
-	LoginPage loginPage = new LoginPage();
+	public LoginPage loginPage = new LoginPage(); 
 
-	@Then("User verify error message {string} is visible")
-	public void userVerifyErrorMessageIsVisible(String warningMessageExpected) {
+	@Then("User verify login error message {string} is visible")
+	public void userVerifyLoginErrorMessageIsVisible(String warningMessageExpected) {
 	    
 		String warningMessageActual = loginPage.getloginWarningMessage();
 		Assert.assertEquals(warningMessageActual, warningMessageExpected);

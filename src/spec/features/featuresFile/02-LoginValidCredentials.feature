@@ -25,14 +25,14 @@ Feature: Login User with correct email and password
       | zipcode      |       123456789 |
       | mobileNumber |   0021697564144 |
     And User select a Country
-    And User clicks on Create Account button
+    And User clicks on Create Account button 
     And User clicks on Continue button
     And User clicks on Logout button
 
   @valid-login
   Scenario: Login with correct email and password
     Given User navigates to home Page
-    And verify that home page is visible successfully
+    And User verify that home page is visible successfully
     When User clicks on SignupLogin button
     And User verify that login to your account "Login to your account" text is visible
     And User enters email "sfaker_02@yahoo.fr" and password "12345"

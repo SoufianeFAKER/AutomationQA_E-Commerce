@@ -5,17 +5,16 @@ Feature: Regiter User
   @register-user
   Scenario: Regiter user
     Given User navigates to application
-    And verify that home page is visible successfully
+    And User verify that home page is visible successfully
     When User clicks on SignupLogin button
-    And User verify that new user "New User Signup!" text is visible 
+    And User verify that new user "New User Signup!" text is visible
     And User enters name "Soufiane FAKER" and email address "sfaker_01@yahoo.fr"
     And User clicks on Signup button
     And User verify that Account Information "ENTER ACCOUNT INFORMATION" text is visible
     And User chooses Title
     And User enters the details into account information fields
-      | name     | Soufiane FAKER  |
-      | email    | sfaker_01@yahoo.fr |
-      | password |           12345 |
+      | name     | Soufiane FAKER |
+      | password |          12345 |
     And User chooses Date of Birth
     And User select checkbox Sign up for our newsletter
     And User select checkbox Receive special offers from our partners

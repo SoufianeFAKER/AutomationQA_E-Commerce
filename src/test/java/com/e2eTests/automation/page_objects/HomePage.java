@@ -16,11 +16,16 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.XPATH, using = "//a[normalize-space()='Signup / Login']")
 	private static WebElement btnSignupLogin;
 	
+	@FindBy(how = How.XPATH, using = "//a[normalize-space()='Contact us']")
+	private static WebElement btnContactUs;
+	
 	public SeleniumUtils seleniumUtils;
 
 	public HomePage() {
+		
 		super(Setup.getDriver());
 		seleniumUtils = new SeleniumUtils();
+		
 	}
 	
 	public String getAttributeOfElement() {
@@ -39,6 +44,12 @@ public class HomePage extends BasePage {
 
 		seleniumUtils.click(btnSignupLogin);
 
+	}
+	
+	public void clickOnBtnContactUs() {
+		
+		seleniumUtils.click(btnContactUs);
+		
 	}
 
 }
