@@ -25,8 +25,8 @@ public class SubscriptionHomeStepDefinition {
 	    
 	}
 	
-	@Given("User enters email address {string} in input feiel")
-	public void userEntersEmailAddressInInputFeiel(String email) {
+	@Given("User enters email address {string} in input field")
+	public void userEntersEmailAddressInInputField(String email) {
 		
 		subscriptionHomePage.enterEmailAddress(email);
 	   

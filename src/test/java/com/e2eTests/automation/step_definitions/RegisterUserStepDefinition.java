@@ -1,5 +1,7 @@
 package com.e2eTests.automation.step_definitions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -19,6 +21,8 @@ public class RegisterUserStepDefinition {
 	public LoginPage loginPage;
 	public RegisterUserPage registerUserPage;
 	public ConfigFileReader configFileReader;
+	
+	public static List<String> myAddressInfo = new ArrayList<>();
 
 	public RegisterUserStepDefinition() {
 
@@ -95,6 +99,8 @@ public class RegisterUserStepDefinition {
 
 		registerUserPage.enterName(dataMap.get("name"));
 		registerUserPage.enterPassword(dataMap.get("password"));
+		
+		myAddressInfo.add(dataMap.get("name"));
 
 	}
 
@@ -135,6 +141,14 @@ public class RegisterUserStepDefinition {
 		registerUserPage.enterCity(dataMap.get("city"));
 		registerUserPage.enterZipCode(dataMap.get("zipcode"));
 		registerUserPage.enterMobileNumber(dataMap.get("mobileNumber"));
+		
+		myAddressInfo.add(dataMap.get("company"));
+		myAddressInfo.add(dataMap.get("address"));
+		myAddressInfo.add(dataMap.get("address2"));
+		myAddressInfo.add(dataMap.get("city"));
+		myAddressInfo.add(dataMap.get("state"));
+		myAddressInfo.add(dataMap.get("zipcode"));
+		myAddressInfo.add(dataMap.get("mobileNumber"));
 
 	}
 
@@ -142,6 +156,8 @@ public class RegisterUserStepDefinition {
 	public void userSelectACountry() {
 
 		registerUserPage.selectCountry("Singapore");
+		
+		myAddressInfo.add("Singapore");
 
 	}
 

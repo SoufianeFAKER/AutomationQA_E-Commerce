@@ -1,6 +1,6 @@
 package com.e2eTests.automation.step_definitions;
 
-import org.testng.Assert;
+import org.junit.Assert;
 
 import com.e2eTests.automation.page_objects.LoginPage;
 

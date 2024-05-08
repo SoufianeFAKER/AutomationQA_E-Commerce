@@ -1,5 +1,11 @@
 package com.e2eTests.automation.utils;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -117,7 +123,7 @@ public class SeleniumUtils extends BasePage {
 		actions.moveToElement(Setup.getDriver().findElement(element));
 		actions.click().perform();
 	}
-	
+
 	/**
 	 * method to double click on an element with action class.
 	 *
@@ -251,6 +257,7 @@ public class SeleniumUtils extends BasePage {
 			waitForElementToBeClickable(elementAttr);
 			driver.findElement((By) elementAttr).click();
 		} else {
+			waitForElementToBeClickable(elementAttr);
 			elementAttr.click();
 		}
 	}
@@ -544,8 +551,6 @@ public class SeleniumUtils extends BasePage {
 		driver.close();
 	}
 
-	
-
 	/**
 	 * Switching Window.
 	 *
@@ -600,12 +605,51 @@ public class SeleniumUtils extends BasePage {
 			}
 		}
 	}
-		public static void waitFor(int seconds) {
-		    try {
-		        Thread.sleep(seconds * 1000);
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    }
+
+	public static void waitFor(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Method for dowloading File With Robo Class
+	 *
+	 * @param location of the file to download
+	 * 
+	 */
+	public void fileDownload(String filePath) {
+		
+		StringSelection stringSelection = new StringSelection(filePath);
+		Clipboard clipBoard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipBoard.setContents(stringSelection, null);
+		
+		Robot robot = null;
+
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
 		}
 		
+		robot.delay(1000);
+			
+		robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+			
+		robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyRelease(KeyEvent.VK_TAB);
+        
+        robot.keyPress(KeyEvent.VK_ENTER); 
+        robot.keyRelease(KeyEvent.VK_ENTER); 
+		
 	}
+
+}

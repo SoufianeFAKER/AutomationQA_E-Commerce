@@ -10,5 +10,5 @@ Feature: Search Product
     And User verify that is navigated to all products "ALL PRODUCTS" page successfully
     And User enter product name "Tshirt" in search input
     And User clicks on search button
-    And User verify that search product 'SEARCHED PRODUCTS' message is visible
+    And User verify that search product "SEARCHED PRODUCTS" message is visible
     Then User Verify all the products related to search "Tshirt" are visible
